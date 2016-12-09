@@ -31,7 +31,7 @@ http {
 
     server {
       listen  8888;
-      #listen [::]:8888 ipv6only=on;
+      listen [::]:8888 ipv6only=on;
 
       # Make site accessible from http://localhost/
       server_name localhost;
@@ -46,5 +46,5 @@ http {
     }
 }
   # All other directives should be placed in these directories
-  include /etc/<%= @nginx_instance_name %>/conf.d/*.conf;
-  include /etc/<%= @nginx_instance_name %>/sites-enabled/*;
+  # include /etc/<%= @nginx_instance_name %>/conf.d/*.conf;
+  # include /etc/<%= @nginx_instance_name %>/sites-enabled/*;
