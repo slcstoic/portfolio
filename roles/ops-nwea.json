@@ -1,0 +1,45 @@
+{
+  "name": "ops-nwea",
+  "description": "Operations NWEA Role",
+  "default_attributes": {
+    "chef_client": {
+      "log_file": "client.log",
+      "interval": 300,
+      "splay": 300,
+      "config": {
+        "client_fork": true,
+        "ssl_verify_mode": ":verify_peer"
+      }
+    },
+    "authorization": {
+      "sudo": {
+        "groups": [
+          "admin",
+          "wheel",
+          "sysadmin"
+        ],
+        "users": [
+          "admin101",
+          "Mike"       
+        ],
+        "passwordless": "true",
+        "include_sudoers_d": "true"
+      }
+    }
+  },
+  "env_run_lists": {
+    "production": [
+      "recipe[selinux::disabled]",
+      "recipe[sudo]",
+      "recipe[nginx_nwea]"
+    ],
+    "qa": [
+
+    ],
+    "development": [
+      "recipe[selinux::disabled]",
+      "recipe[sudo]",
+      "recipe[nginx_nwea]"
+    ]
+  }
+}
