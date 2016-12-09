@@ -37,8 +37,9 @@
 
     ],
     "development": [
-      "recipe[selinux::disabled]",
+      "recipe[yum::default]",
       "recipe[sudo]",
+      "recipe[selinux::disabled]",
       "recipe[nginx_nwea]"
     ]
   }

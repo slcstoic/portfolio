@@ -24,3 +24,7 @@ yum_globalconfig '/etc/yum.conf' do
 
   action :create
 end
+
+package 'epel-release' do
+	action :install
+end
